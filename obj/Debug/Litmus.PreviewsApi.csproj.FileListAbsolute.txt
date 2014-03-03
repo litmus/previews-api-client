@@ -1,7 +1,0 @@
-C:\dev\examples\previews-api\Litmus.PreviewsApi\obj\Debug\Litmus.PreviewsApi.csprojResolveAssemblyReference.cache
-C:\dev\examples\previews-api\Litmus.PreviewsApi\bin\Debug\Litmus.PreviewsApi.dll
-C:\dev\examples\previews-api\Litmus.PreviewsApi\bin\Debug\Litmus.PreviewsApi.pdb
-C:\dev\examples\previews-api\Litmus.PreviewsApi\bin\Debug\RestSharp.dll
-C:\dev\examples\previews-api\Litmus.PreviewsApi\bin\Debug\RestSharp.xml
-C:\dev\examples\previews-api\Litmus.PreviewsApi\obj\Debug\Litmus.PreviewsApi.dll
-C:\dev\examples\previews-api\Litmus.PreviewsApi\obj\Debug\Litmus.PreviewsApi.pdb
