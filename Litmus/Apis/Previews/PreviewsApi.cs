@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
-using System.Web;
+using System.Security;
 using RestSharp;
+using RestSharp.Authenticators;
 using Litmus.Apis.Previews.Models;
 
 namespace Litmus.Apis.Previews
 {
     /// <summary>
-    /// Summary description for PreviewsApi
+    /// Class to access the Litmus Previews API for resellers. 
     /// </summary>
     public class PreviewsApi
     {
@@ -22,6 +23,8 @@ namespace Litmus.Apis.Previews
 
         public TestingApplication GetTestResult(int id)
         {
+            CheckNetworkConfiguration();
+
             var request = new RestRequest("/api/v1/Result/{id}", Method.GET);
             request.RequestFormat = DataFormat.Json;
             request.AddUrlSegment("id", id.ToString());
@@ -33,6 +36,8 @@ namespace Litmus.Apis.Previews
 
         public async Task<TestingApplication> GetTestResultAsync(int id)
         {
+            CheckNetworkConfiguration();
+
             var request = new RestRequest("/api/v1/Result/{id}", Method.GET);
             request.RequestFormat = DataFormat.Json;
             request.AddUrlSegment("id", id.ToString());
@@ -44,6 +49,8 @@ namespace Litmus.Apis.Previews
 
         public List<string> GetSpamSeedAddresses()
         {
+            CheckNetworkConfiguration();
+
             var request = new RestRequest("/api/v1/SpamSeedAddresses", Method.GET);
             request.RequestFormat = DataFormat.Json;
 
@@ -54,6 +61,8 @@ namespace Litmus.Apis.Previews
 
         public async Task<List<string>> GetSpamSeedAddressesAsync()
         {
+            CheckNetworkConfiguration();
+
             var request = new RestRequest("/api/v1/SpamSeedAddresses", Method.GET);
             request.RequestFormat = DataFormat.Json;
 
@@ -67,11 +76,13 @@ namespace Litmus.Apis.Previews
 
         public EmailTest CreateEmailTest(EmailTest test)
         {
+            CheckNetworkConfiguration();
+
             var request = new RestRequest("/api/v1/EmailTests", Method.POST);
             request.RequestFormat = DataFormat.Json;
-            
+
             request.AddBody(test);
-            
+
             var response2 = restClient.Execute<EmailTest>(request);
 
             return response2.Data;
@@ -79,6 +90,8 @@ namespace Litmus.Apis.Previews
 
         public async Task<EmailTest> CreateEmailTestAsync(EmailTest test)
         {
+            CheckNetworkConfiguration();
+
             var request = new RestRequest("/api/v1/EmailTests", Method.POST);
             request.RequestFormat = DataFormat.Json;
             request.AddBody(test);
@@ -90,6 +103,8 @@ namespace Litmus.Apis.Previews
 
         public List<TestingApplication> GetEmailTestingApplications()
         {
+            CheckNetworkConfiguration();
+
             var request = new RestRequest("/api/v1/EmailTests/TestingApplications", Method.GET);
             request.RequestFormat = DataFormat.Json;
 
@@ -100,6 +115,8 @@ namespace Litmus.Apis.Previews
 
         public async Task<List<TestingApplication>> GetEmailTestingApplicationsAsync()
         {
+            CheckNetworkConfiguration();
+
             var request = new RestRequest("/api/v1/EmailTests/TestingApplications", Method.GET);
             request.RequestFormat = DataFormat.Json;
 
@@ -110,6 +127,8 @@ namespace Litmus.Apis.Previews
 
         public EmailTest GetEmailTest(int emailTestId)
         {
+            CheckNetworkConfiguration();
+
             var request = new RestRequest("/api/v1/EmailTests/{id}", Method.GET);
             request.RequestFormat = DataFormat.Json;
             request.AddUrlSegment("id", emailTestId.ToString());
@@ -121,6 +140,8 @@ namespace Litmus.Apis.Previews
 
         public async Task<EmailTest> GetEmailTestAsync(int emailTestId)
         {
+            CheckNetworkConfiguration();
+
             var request = new RestRequest("/api/v1/EmailTests/{id}", Method.GET);
             request.RequestFormat = DataFormat.Json;
             request.AddUrlSegment("id", emailTestId.ToString());
@@ -133,9 +154,11 @@ namespace Litmus.Apis.Previews
         #endregion
 
         #region Page Tests
-        
+
         public PageTest CreatePageTest(PageTest test)
         {
+            CheckNetworkConfiguration();
+
             var request = new RestRequest("/api/v1/PageTests", Method.POST);
             request.RequestFormat = DataFormat.Json;
             request.AddBody(test);
@@ -147,6 +170,8 @@ namespace Litmus.Apis.Previews
 
         public async Task<PageTest> CreatePageTestAsync(PageTest test)
         {
+            CheckNetworkConfiguration();
+
             var request = new RestRequest("/api/v1/PageTests", Method.POST);
             request.RequestFormat = DataFormat.Json;
             request.AddBody(test);
@@ -158,8 +183,10 @@ namespace Litmus.Apis.Previews
 
         public List<TestingApplication> GetPageTestingApplications()
         {
-             var request = new RestRequest("/api/v1/PageTests/TestingApplications", Method.GET);
-             request.RequestFormat = DataFormat.Json;
+            CheckNetworkConfiguration();
+
+            var request = new RestRequest("/api/v1/PageTests/TestingApplications", Method.GET);
+            request.RequestFormat = DataFormat.Json;
             var response2 = restClient.Execute<List<TestingApplication>>(request);
 
             return response2.Data;
@@ -176,6 +203,8 @@ namespace Litmus.Apis.Previews
 
         public PageTest GetPageTest(int pageTestId)
         {
+            CheckNetworkConfiguration();
+
             var request = new RestRequest("/api/v1/PageTests/{id}", Method.GET);
             request.RequestFormat = DataFormat.Json;
             request.AddUrlSegment("id", pageTestId.ToString());
@@ -187,6 +216,8 @@ namespace Litmus.Apis.Previews
 
         public async Task<PageTest> GetPageTestAsync(int pageTestId)
         {
+            CheckNetworkConfiguration();
+
             var request = new RestRequest("/api/v1/PageTests/{id}", Method.GET);
             request.RequestFormat = DataFormat.Json;
             request.AddUrlSegment("id", pageTestId.ToString());
@@ -202,6 +233,8 @@ namespace Litmus.Apis.Previews
 
         public LinksTest CreateLinksTest(string html)
         {
+            CheckNetworkConfiguration();
+
             var request = new RestRequest("/api/v1/LinkTests", Method.POST);
             request.RequestFormat = DataFormat.Json;
             request.AddBody(html);
@@ -213,6 +246,8 @@ namespace Litmus.Apis.Previews
 
         public async Task<LinksTest> CreateLinksTestAsync(string html)
         {
+            CheckNetworkConfiguration();
+
             var request = new RestRequest("/api/v1/LinkTests", Method.POST);
             request.RequestFormat = DataFormat.Json;
             request.AddBody(html);
@@ -224,6 +259,8 @@ namespace Litmus.Apis.Previews
 
         public LinksTest GetLinksTest(int linkTestId)
         {
+            CheckNetworkConfiguration();
+
             var request = new RestRequest("/api/v1/LinkTests/{id}", Method.GET);
             request.RequestFormat = DataFormat.Json;
             request.AddUrlSegment("id", linkTestId.ToString());
@@ -235,6 +272,8 @@ namespace Litmus.Apis.Previews
 
         public async Task<LinksTest> GetLinksTestAsync(int linkTestId)
         {
+            CheckNetworkConfiguration();
+
             var request = new RestRequest("/api/v1/LinkTests/{id}", Method.GET);
             request.RequestFormat = DataFormat.Json;
             request.AddUrlSegment("id", linkTestId.ToString());
@@ -250,6 +289,8 @@ namespace Litmus.Apis.Previews
 
         public CodeAnalysisTest CreateCodeAnalysisTest(string html)
         {
+            CheckNetworkConfiguration();
+
             var request = new RestRequest("/api/v1/CodeAnalysis", Method.POST);
             request.RequestFormat = DataFormat.Json;
             request.AddBody(html);
@@ -272,6 +313,8 @@ namespace Litmus.Apis.Previews
 
         public CodeAnalysisTest CreateCodeAnalysisTestByTestingApplication(string html, List<TestingApplication> testingApplications)
         {
+            CheckNetworkConfiguration();
+
             var request = new RestRequest("/api/v1/CodeAnalysis", Method.POST);
             request.RequestFormat = DataFormat.Json;
 
@@ -290,6 +333,8 @@ namespace Litmus.Apis.Previews
 
         public async Task<CodeAnalysisTest> CreateCodeAnalysisTestByTestingApplicationAsync(string html, List<TestingApplication> testingApplications)
         {
+            CheckNetworkConfiguration();
+
             var request = new RestRequest("/api/v1/CodeAnalysis", Method.POST);
             request.RequestFormat = DataFormat.Json;
 
@@ -308,6 +353,15 @@ namespace Litmus.Apis.Previews
 
 
         #endregion
+
+        private void CheckNetworkConfiguration()
+        {
+            //Litmus' API no longer supports TLS 1.0
+            if (!ServicePointManager.SecurityProtocol.HasFlag(SecurityProtocolType.Tls12))
+            {
+                throw new SecurityException("The Litmus API requires TLS 1.2 Security Protocol Type in the Service Point Manager.");
+            }
+        }
 
     }
 }
