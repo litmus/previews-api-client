@@ -11,7 +11,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <releaseNotes>Initial Release</releaseNotes>
-    <copyright>Copyright 2014</copyright>
+    <copyright>$copyright$</copyright>
     <tags>Litmus Email Previews Api</tags>
   </metadata>
 </package>
