@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Litmus.PreviewsApi", "Litmus.PreviewsApi.csproj", "{74338E7E-022A-4307-B36C-B0D664AABEFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Litmus.PreviewsApi.Tests", "Litmus.PreviewsApi.Tests\Litmus.PreviewsApi.Tests.csproj", "{23B761DE-CBAF-4831-88B5-0F798F0602A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{74338E7E-022A-4307-B36C-B0D664AABEFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74338E7E-022A-4307-B36C-B0D664AABEFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74338E7E-022A-4307-B36C-B0D664AABEFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23B761DE-CBAF-4831-88B5-0F798F0602A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23B761DE-CBAF-4831-88B5-0F798F0602A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23B761DE-CBAF-4831-88B5-0F798F0602A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23B761DE-CBAF-4831-88B5-0F798F0602A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E3C9658F-5B49-412F-BA42-6EF8D725CA3B}
 	EndGlobalSection
 EndGlobal
