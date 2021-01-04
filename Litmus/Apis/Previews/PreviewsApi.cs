@@ -21,7 +21,7 @@ namespace Litmus.Apis.Previews
             restClient.Authenticator = new HttpBasicAuthenticator(username, password);
         }
 
-        public TestingApplication GetTestResult(int id)
+        public TestingApplication GetTestResult(long id)
         {
             CheckNetworkConfiguration();
 
@@ -34,7 +34,7 @@ namespace Litmus.Apis.Previews
             return response2.Data;
         }
 
-        public async Task<TestingApplication> GetTestResultAsync(int id)
+        public async Task<TestingApplication> GetTestResultAsync(long id)
         {
             CheckNetworkConfiguration();
 
@@ -70,7 +70,6 @@ namespace Litmus.Apis.Previews
 
             return response2.Data;
         }
-
 
         #region Email Tests
 
@@ -147,82 +146,6 @@ namespace Litmus.Apis.Previews
             request.AddUrlSegment("id", emailTestId.ToString());
 
             var response2 = await restClient.ExecuteTaskAsync<EmailTest>(request);
-
-            return response2.Data;
-        }
-
-        #endregion
-
-        #region Page Tests
-
-        public PageTest CreatePageTest(PageTest test)
-        {
-            CheckNetworkConfiguration();
-
-            var request = new RestRequest("/api/v1/PageTests", Method.POST);
-            request.RequestFormat = DataFormat.Json;
-            request.AddBody(test);
-
-            var response2 = restClient.Execute<PageTest>(request);
-
-            return response2.Data;
-        }
-
-        public async Task<PageTest> CreatePageTestAsync(PageTest test)
-        {
-            CheckNetworkConfiguration();
-
-            var request = new RestRequest("/api/v1/PageTests", Method.POST);
-            request.RequestFormat = DataFormat.Json;
-            request.AddBody(test);
-
-            var response2 = await restClient.ExecuteTaskAsync<PageTest>(request);
-
-            return response2.Data;
-        }
-
-        public List<TestingApplication> GetPageTestingApplications()
-        {
-            CheckNetworkConfiguration();
-
-            var request = new RestRequest("/api/v1/PageTests/TestingApplications", Method.GET);
-            request.RequestFormat = DataFormat.Json;
-            var response2 = restClient.Execute<List<TestingApplication>>(request);
-
-            return response2.Data;
-        }
-
-        public async Task<List<TestingApplication>> GetPageTestingApplicationsAsync()
-        {
-            var request = new RestRequest("/api/v1/PageTests/TestingApplications", Method.GET);
-            request.RequestFormat = DataFormat.Json;
-            var response2 = await restClient.ExecuteTaskAsync<List<TestingApplication>>(request);
-
-            return response2.Data;
-        }
-
-        public PageTest GetPageTest(int pageTestId)
-        {
-            CheckNetworkConfiguration();
-
-            var request = new RestRequest("/api/v1/PageTests/{id}", Method.GET);
-            request.RequestFormat = DataFormat.Json;
-            request.AddUrlSegment("id", pageTestId.ToString());
-
-            var response2 = restClient.Execute<PageTest>(request);
-
-            return response2.Data;
-        }
-
-        public async Task<PageTest> GetPageTestAsync(int pageTestId)
-        {
-            CheckNetworkConfiguration();
-
-            var request = new RestRequest("/api/v1/PageTests/{id}", Method.GET);
-            request.RequestFormat = DataFormat.Json;
-            request.AddUrlSegment("id", pageTestId.ToString());
-
-            var response2 = await restClient.ExecuteTaskAsync<PageTest>(request);
 
             return response2.Data;
         }

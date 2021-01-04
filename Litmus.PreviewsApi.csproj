@@ -51,7 +51,6 @@
     <Compile Include="Litmus\Apis\Previews\Models\EmailTest.cs" />
     <Compile Include="Litmus\Apis\Previews\Models\Link.cs" />
     <Compile Include="Litmus\Apis\Previews\Models\LinksTest.cs" />
-    <Compile Include="Litmus\Apis\Previews\Models\PageTest.cs" />
     <Compile Include="Litmus\Apis\Previews\Models\ResultType.cs" />
     <Compile Include="Litmus\Apis\Previews\Models\SpamHeader.cs" />
     <Compile Include="Litmus\Apis\Previews\Models\TestingApplication.cs" />
