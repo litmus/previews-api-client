@@ -21,7 +21,7 @@ namespace Litmus.Apis.Previews
             restClient.Authenticator = new HttpBasicAuthenticator(username, password);
         }
 
-        public TestingApplication GetTestResult(int id)
+        public TestingApplication GetTestResult(long id)
         {
             CheckNetworkConfiguration();
 
@@ -34,7 +34,7 @@ namespace Litmus.Apis.Previews
             return response2.Data;
         }
 
-        public async Task<TestingApplication> GetTestResultAsync(int id)
+        public async Task<TestingApplication> GetTestResultAsync(long id)
         {
             CheckNetworkConfiguration();
 
