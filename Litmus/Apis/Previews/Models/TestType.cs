@@ -5,7 +5,6 @@
     /// </summary>
     public enum TestType
     {
-        Email,
-        Page
+        Email
     }
 }
