@@ -1,16 +1,16 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
-using System.Security;
+﻿using Litmus.Apis.Previews.Models;
 using RestSharp;
 using RestSharp.Authenticators;
-using Litmus.Apis.Previews.Models;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Security;
+using System.Threading.Tasks;
 
 namespace Litmus.Apis.Previews
 {
     /// <summary>
-    /// Class to access the Litmus Previews API for resellers. 
+    /// Class to access the Litmus Previews API for resellers.
     /// </summary>
     public class PreviewsApi
     {
@@ -42,7 +42,7 @@ namespace Litmus.Apis.Previews
             request.RequestFormat = DataFormat.Json;
             request.AddUrlSegment("id", id.ToString());
 
-            var response2 = await restClient.ExecuteTaskAsync<TestingApplication>(request);
+            var response2 = await restClient.ExecuteAsync<TestingApplication>(request);
 
             return response2.Data;
         }
@@ -66,7 +66,7 @@ namespace Litmus.Apis.Previews
             var request = new RestRequest("/api/v1/SpamSeedAddresses", Method.GET);
             request.RequestFormat = DataFormat.Json;
 
-            var response2 = await restClient.ExecuteTaskAsync<List<string>>(request);
+            var response2 = await restClient.ExecuteAsync<List<string>>(request);
 
             return response2.Data;
         }
@@ -95,7 +95,7 @@ namespace Litmus.Apis.Previews
             request.RequestFormat = DataFormat.Json;
             request.AddBody(test);
 
-            var response2 = await restClient.ExecuteTaskAsync<EmailTest>(request);
+            var response2 = await restClient.ExecuteAsync<EmailTest>(request);
 
             return response2.Data;
         }
@@ -119,7 +119,7 @@ namespace Litmus.Apis.Previews
             var request = new RestRequest("/api/v1/EmailTests/TestingApplications", Method.GET);
             request.RequestFormat = DataFormat.Json;
 
-            var response2 = await restClient.ExecuteTaskAsync<List<TestingApplication>>(request);
+            var response2 = await restClient.ExecuteAsync<List<TestingApplication>>(request);
 
             return response2.Data;
         }
@@ -145,7 +145,7 @@ namespace Litmus.Apis.Previews
             request.RequestFormat = DataFormat.Json;
             request.AddUrlSegment("id", emailTestId.ToString());
 
-            var response2 = await restClient.ExecuteTaskAsync<EmailTest>(request);
+            var response2 = await restClient.ExecuteAsync<EmailTest>(request);
 
             return response2.Data;
         }
@@ -175,7 +175,7 @@ namespace Litmus.Apis.Previews
             request.RequestFormat = DataFormat.Json;
             request.AddBody(html);
 
-            var response2 = await restClient.ExecuteTaskAsync<LinksTest>(request);
+            var response2 = await restClient.ExecuteAsync<LinksTest>(request);
 
             return response2.Data;
         }
@@ -201,7 +201,7 @@ namespace Litmus.Apis.Previews
             request.RequestFormat = DataFormat.Json;
             request.AddUrlSegment("id", linkTestId.ToString());
 
-            var response2 = await restClient.ExecuteTaskAsync<LinksTest>(request);
+            var response2 = await restClient.ExecuteAsync<LinksTest>(request);
 
             return response2.Data;
         }
@@ -229,7 +229,7 @@ namespace Litmus.Apis.Previews
             request.RequestFormat = DataFormat.Json;
             request.AddBody(html);
 
-            var response2 = await restClient.ExecuteTaskAsync<CodeAnalysisTest>(request);
+            var response2 = await restClient.ExecuteAsync<CodeAnalysisTest>(request);
 
             return response2.Data;
         }
@@ -269,7 +269,7 @@ namespace Litmus.Apis.Previews
 
             request.AddBody(test);
 
-            var response2 = await restClient.ExecuteTaskAsync<CodeAnalysisTest>(request);
+            var response2 = await restClient.ExecuteAsync<CodeAnalysisTest>(request);
 
             return response2.Data;
         }

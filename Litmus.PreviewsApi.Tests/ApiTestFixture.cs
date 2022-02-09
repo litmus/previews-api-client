@@ -1,7 +1,7 @@
-﻿using System;
+﻿using NUnit.Framework;
+using System;
 using System.Net;
 using System.Security.Authentication;
-using NUnit.Framework;
 
 namespace Litmus.PreviewsApi.Tests
 {
@@ -39,7 +39,7 @@ namespace Litmus.PreviewsApi.Tests
         /// </summary>
         /// <param name="resultId"></param>
         [Test]
-        [TestCase(-1)]  
+        [TestCase(-1)]
         public void IsGetResultWorking(long resultId = 0)
         {
             if (resultId <= 0)
@@ -49,7 +49,7 @@ namespace Litmus.PreviewsApi.Tests
             var api = new Apis.Previews.PreviewsApi(ApiKey, ApiPassword);
             var result = api.GetTestResult(resultId);
             Assert.NotNull(result);
-            Assert.AreEqual(resultId,result.Id);
+            Assert.AreEqual(resultId, result.Id);
         }
 
         /// <summary>
