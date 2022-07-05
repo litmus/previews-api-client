@@ -1,17 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{74338E7E-022A-4307-B36C-B0D664AABEFA}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Litmus.PreviewsApi</RootNamespace>
     <AssemblyName>Litmus.PreviewsApi</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
+    <Company>Litmus Software</Company>
+    <Description>Litmus Previews Api Library</Description>
+    <Copyright>Copyright © Litmus Software 2021</Copyright>
+    <AssemblyVersion>1.0.0.2</AssemblyVersion>
+    <FileVersion>1.0.0.2</FileVersion>
+    <PackageProjectUrl>https://github.com/litmus/previews-api-client</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/litmus/previews-api-client</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,42 +35,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="RestSharp, Version=106.11.4.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
-      <HintPath>packages\RestSharp.106.11.4\lib\net452\RestSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <Compile Remove="Litmus.PreviewsApi.Tests\**" />
+    <EmbeddedResource Remove="Litmus.PreviewsApi.Tests\**" />
+    <None Remove="Litmus.PreviewsApi.Tests\**" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Litmus\Apis\Previews\Models\CodeAnalysisHtmlValidation.cs" />
-    <Compile Include="Litmus\Apis\Previews\Models\CodeAnalysisPotentialProblems.cs" />
-    <Compile Include="Litmus\Apis\Previews\Models\CodeAnalysisTest.cs" />
-    <Compile Include="Litmus\Apis\Previews\Models\CodeAnalysisTestByTestingApplication.cs" />
-    <Compile Include="Litmus\Apis\Previews\Models\EmailTest.cs" />
-    <Compile Include="Litmus\Apis\Previews\Models\Link.cs" />
-    <Compile Include="Litmus\Apis\Previews\Models\LinksTest.cs" />
-    <Compile Include="Litmus\Apis\Previews\Models\ResultType.cs" />
-    <Compile Include="Litmus\Apis\Previews\Models\SpamHeader.cs" />
-    <Compile Include="Litmus\Apis\Previews\Models\TestingApplication.cs" />
-    <Compile Include="Litmus\Apis\Previews\Models\TestType.cs" />
-    <Compile Include="Litmus\Apis\Previews\PreviewsApi.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Remove="*.nupkg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <PackageReference Include="RestSharp" Version="106.15.0" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 </Project>
